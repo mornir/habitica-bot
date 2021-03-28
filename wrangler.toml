@@ -1,0 +1,6 @@
+name = "habitica-bot"
+type = "javascript"
+account_id = "18d539553f6adb73c3dc0efa2824280d"
+workers_dev = true
+route = ""
+zone_id = ""
