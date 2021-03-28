@@ -1,6 +1,10 @@
-name = "habitica-bot"
+name = "habitica-bot-dev"
 type = "javascript"
 account_id = "18d539553f6adb73c3dc0efa2824280d"
 workers_dev = true
-route = ""
-zone_id = ""
+vars = { ENVIRONMENT = "dev" }
+
+[env.production]
+name = "habitica-bot"
+workers_dev = true
+vars = { ENVIRONMENT = "production" }
