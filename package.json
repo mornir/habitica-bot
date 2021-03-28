@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write '**/*.{js,css,json,md}'"
+    "format": "prettier --write '**/*.{js,css,json,md}'",
+    "publish-dev": "wrangler publish",
+    "publish-prod": "wrangler publish --env production"
   },
   "author": "mornir <jeromepott@hotmail.com>",
   "license": "MIT",
