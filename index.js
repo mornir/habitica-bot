@@ -42,10 +42,11 @@ async function handleRequest(request) {
       if (
         chat.info.type === 'boss_damage' &&
         parseInt(chat.info.userDamage) > 40
-      )
+      ) {
         await postToDiscord(
           'https://tenor.com/view/damage-thats-alot-of-damage-jon-tron-gif-13054497',
         )
+      }
     }
 
     return new Response('OK')
