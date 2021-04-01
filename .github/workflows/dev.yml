@@ -1,9 +1,9 @@
-name: Deploy Worker to Production
+name: Deploy Worker to Development
 
 on:
   push:
     branches:
-      - master
+      - dev
 
 jobs:
   deploy:
@@ -15,4 +15,3 @@ jobs:
         uses: cloudflare/wrangler-action@1.3.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          environment: 'production'
