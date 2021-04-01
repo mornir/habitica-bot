@@ -1,5 +1,5 @@
 const QUEST_INVITE_MSG =
-  '@everyone Come and join us on a new quest!⚔️🧙 Quest starts in about 24 hours ⏳'
+  '`Come and join us on a new quest! ⚔️  Quest starts in about 24 hours ⏳`'
 
 function postToDiscord(msg = '', channel = 'skills') {
   const channels = {
