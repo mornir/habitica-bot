@@ -7,7 +7,7 @@ function postToDiscord(msg = '', channel = 'skills') {
     quests: DISCORD_QUESTS,
   }
   return fetch(channels[channel], {
-    body: JSON.stringify(msg),
+    body: JSON.stringify({ content: msg }),
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   })
@@ -28,15 +28,13 @@ async function handleRequest(request) {
     const { chat } = payload
 
     if (chat.uuid === 'system') {
-      const content = { content: chat.text }
-
       if (
         chat.info.type === 'quest_start' ||
         chat.info.type === 'boss_defeated'
       ) {
-        await postToDiscord(content, 'quests')
+        await postToDiscord(chat.text, 'quests')
       } else {
-        await postToDiscord(content)
+        await postToDiscord(chat.text, 'skills')
       }
 
       if (
@@ -45,6 +43,7 @@ async function handleRequest(request) {
       ) {
         await postToDiscord(
           'https://tenor.com/view/damage-thats-alot-of-damage-jon-tron-gif-13054497',
+          'skills'
         )
       }
     }
