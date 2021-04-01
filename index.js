@@ -21,7 +21,7 @@ async function handleRequest(request) {
       payload.webhookType === 'questActivity' &&
       payload.type === 'questInvited'
     ) {
-      postToDiscord(QUEST_INVITE_MSG, 'quests')
+      await postToDiscord(QUEST_INVITE_MSG, 'quests')
       return new Response('OK')
     }
 
