@@ -1,4 +1,4 @@
-name: Deploy Worker to Production
+name: Deploy Worker
 
 on:
   push:
