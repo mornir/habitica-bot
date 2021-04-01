@@ -6,13 +6,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write '**/*.{js,css,json,md}'",
-    "publish-dev": "wrangler publish",
-    "publish-prod": "wrangler publish --env production"
+    "format": "prettier --write '**/*.{js,css,json,md}'"
   },
   "author": "mornir <jeromepott@hotmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "^2.2.1"
   }
 }
