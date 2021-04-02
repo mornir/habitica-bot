@@ -4,12 +4,12 @@ const QUEST_INVITE_MSG =
 function postToDiscord(msg = '', channel = 'skills') {
   const channels = {
     skills: DISCORD_WEBHOOK_URL,
-    quests: DISCORD_QUESTS
+    quests: DISCORD_QUESTS,
   }
   return fetch(channels[channel], {
     body: JSON.stringify({ content: msg }),
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'application/json' },
   })
 }
 
@@ -52,6 +52,6 @@ async function handleRequest(request) {
   }
 }
 
-addEventListener('fetch', event => {
+addEventListener('fetch', (event) => {
   event.respondWith(handleRequest(event.request))
 })
