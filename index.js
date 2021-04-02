@@ -17,10 +17,7 @@ async function handleRequest(request) {
   try {
     const payload = await request.json()
 
-    if (
-      payload.webhookType === 'questActivity' &&
-      payload.type === 'questInvited'
-    ) {
+    if (payload.webhookType === 'questActivity') {
       await postToDiscord(QUEST_INVITE_MSG, 'quests')
       return new Response('OK')
     }
