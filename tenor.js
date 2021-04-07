@@ -16,6 +16,14 @@ export default {
   },
   gif(key) {
     // TODO: handle missing key by showing a missing gif
+
+    if (!this.GIFS[key]) {
+      return (
+        this.TENOR_URL +
+        'debugging-we-bare-bears-panda-grizzly-polar-bear-gif-7268856'
+      )
+    }
+
     return this.TENOR_URL + this.GIFS[key][0]
   },
 }
