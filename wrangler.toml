@@ -1,5 +1,5 @@
 name = "habitica-bot-dev"
-type = "javascript"
+type = "webpack"
 account_id = "18d539553f6adb73c3dc0efa2824280d"
 workers_dev = true
 vars = { ENVIRONMENT = "dev" }
