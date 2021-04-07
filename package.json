@@ -13,6 +13,7 @@
   "author": "mornir <jeromepott@hotmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "eslint": "^7.23.0",
     "prettier": "^2.2.1"
   }
 }
