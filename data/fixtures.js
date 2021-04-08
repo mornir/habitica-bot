@@ -194,7 +194,7 @@ export default {
   },
   quest_start: {
     group: {
-      id: '5f98dbe0-c888-4dbf-aa0e-fc317c9c8f8c',
+      id: 'xxxxxxxxx-c888-4dbf-aa0e-fc317c9c8f8c',
       name: 'super_squad ',
     },
     chat: {
@@ -214,7 +214,7 @@ export default {
       groupId: 'xxxxxxxxx-b949-4dbf-aa0e-fc317c9cbf8c',
     },
     webhookType: 'groupChatReceived',
-    user: { _id: '5454544ea-134d-4e37-bbdc-310351b35729' },
+    user: { _id: 'xxxxxxxxx-134d-4e37-bbdc-310351b35729' },
   },
   quest_invite: {
     type: 'questInvited',
@@ -229,14 +229,14 @@ export default {
 
   quest_finish: {
     group: {
-      id: '5f98dbe0-c888-4dbf-aa0e-fc317c9c8f8c',
+      id: 'xxxxxxxxx-c888-4dbf-aa0e-fc317c9c8f8c',
       name: 'super_squad ',
     },
     chat: {
       flagCount: 0,
-      _id: '5c983848-fd49-486b-b566-9058771b6d9c',
+      _id: 'xxxxxxxxx-fd49-486b-b566-9058771b6d9c',
       flags: {},
-      id: '5c983848-fd49-486b-b566-9058771b6d9c',
+      id: 'xxxxxxxxx-fd49-486b-b566-9058771b6d9c',
       text:
         '`You defeated The Basi-List! Questing party members receive the rewards of victory.`',
       unformattedText:
@@ -248,9 +248,9 @@ export default {
       timestamp: 1614786459638,
       likes: {},
       uuid: 'system',
-      groupId: '5f38dbe0-b949-4dbf-aa0e-fc317c9cbf8c',
+      groupId: 'xxxxxxxxx-b949-4dbf-aa0e-fc317c9cbf8c',
     },
     webhookType: 'groupChatReceived',
-    user: { _id: '5454544ea-134d-4e37-bbdc-310351b35729' },
+    user: { _id: 'xxxxxxxxx-134d-4e37-bbdc-310351b35729' },
   },
 }
