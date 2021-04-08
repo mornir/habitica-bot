@@ -17,7 +17,7 @@ export default function generateMessages(payload) {
 
   const { chat } = payload
 
-  if (chat?.uuid !== 'system') return messages
+  if (chat.uuid !== 'system') return messages
 
   if (chat.info.type === 'quest_start') {
     addMsg(chat.text, 'quests')
