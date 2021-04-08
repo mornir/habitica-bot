@@ -15,5 +15,6 @@ module.exports = {
   globals: {
     DISCORD_WEBHOOK_URL: 'readonly',
     DISCORD_QUESTS: 'readonly',
+    ENVIRONMENT: 'readonly',
   },
 }

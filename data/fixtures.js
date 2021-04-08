@@ -226,7 +226,6 @@ export default {
     webhookType: 'questActivity',
     user: { _id: 'xxxxxxxxx-134d-4e37-bbdc-310351b35729' },
   },
-
   quest_finish: {
     group: {
       id: 'xxxxxxxxx-c888-4dbf-aa0e-fc317c9c8f8c',
