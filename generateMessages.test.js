@@ -24,3 +24,24 @@ test('Less than 20 dmg to boss', () => {
     { msg: fixtures[key].chat.text, channel: 'skills' },
   ])
 })
+
+test('Sustained more than 8 dmg', () => {
+  const key = 'dmg_sustained'
+  expect(generateMessages(fixtures[key])).toEqual([
+    { msg: fixtures[key].chat.text, channel: 'skills' },
+    { msg: tenor.gif(key), channel: 'skills' },
+  ])
+})
+
+test('Non system messages', () => {
+  const key = 'non_system_msg'
+  expect(generateMessages(fixtures[key])).toEqual([])
+})
+
+test.only('Quest start', () => {
+  const key = 'quest_start'
+  expect(generateMessages(fixtures[key])).toEqual(
+    { msg: fixtures[key].chat.text, channel: 'quests' },
+    { msg: tenor.gif(key), channel: 'quests' }
+  )
+})

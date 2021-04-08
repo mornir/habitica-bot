@@ -6,7 +6,6 @@ export default {
     dmg_sustained: [
       'ugh-guys-im-hit-jason-david-frank-red-zeo-ranger-tommy-oliver-power-rangers-zeo-gif-19564332',
     ],
-
     quest_invite: ['gandalf-looking-for-adventure-gif-13515313'],
     quest_start: [
       'adventure-lotr-hobbit-lord-of-gif-5730296',
