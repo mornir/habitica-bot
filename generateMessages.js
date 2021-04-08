@@ -33,6 +33,8 @@ export default function generateMessages(payload) {
     return messages
   }
 
+  addMsg(chat.text, 'skills')
+
   if (chat.info.type === 'boss_damage') {
     const dmgSustained = parseFloat(chat.info.bossDamage)
     if (dmgSustained > 8) {
@@ -49,8 +51,6 @@ export default function generateMessages(payload) {
       addMsg(tenor.gif('dmg_mid'), 'skills')
     }
   }
-
-  addMsg(chat.text, 'skills')
 
   return messages
 }

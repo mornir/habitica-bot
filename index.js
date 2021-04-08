@@ -15,9 +15,7 @@ function postToDiscord({ msg = '', channel = 'skills' }) {
 async function handleRequest(request) {
   try {
     const payload = await request.json()
-
     const messages = generateMessages(payload)
-    console.log(messages)
     await Promise.all(messages.map((msg) => postToDiscord(msg)))
     return new Response('OK')
   } catch (error) {
