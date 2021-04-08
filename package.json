@@ -24,6 +24,6 @@
     "transform": {}
   },
   "dependencies": {
-    "@cfworker/sentry": "^1.6.11"
+    "toucan-js": "^2.4.1"
   }
 }
