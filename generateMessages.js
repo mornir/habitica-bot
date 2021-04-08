@@ -1,9 +1,7 @@
-import tenor from './tenor'
+import tenor from './data/tenor'
+import customTexts from './data/customTexts'
 
 export default function generateMessages(payload) {
-  const QUEST_INVITE_MSG =
-    '**Come and join us on a new quest! ⚔️  Quest starts in about 24 hours ⏳**'
-
   const messages = []
 
   function addMsg(msg, channel) {
@@ -12,14 +10,14 @@ export default function generateMessages(payload) {
 
   // If quest invite
   if (payload.webhookType === 'questActivity') {
-    addMsg(QUEST_INVITE_MSG, 'quests')
+    addMsg(customTexts.quest_invite, 'quests')
     addMsg(tenor.gif('quest_invite'), 'quests')
     return messages
   }
 
   const { chat } = payload
 
-  if (chat.uuid !== 'system') return messages
+  if (chat?.uuid !== 'system') return messages
 
   if (chat.info.type === 'quest_start') {
     addMsg(chat.text, 'quests')

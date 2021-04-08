@@ -1,47 +1,72 @@
-import fixtures from './fixtures'
+import fixtures from './data/fixtures'
 import generateMessages from './generateMessages'
-import tenor from './tenor'
+import tenor from './data/tenor'
+import customTexts from './data/customTexts'
 
-test('Greater than 40 dmg to boss', () => {
-  const key = 'dmg_high'
-  expect(generateMessages(fixtures[key])).toEqual([
-    { msg: fixtures[key].chat.text, channel: 'skills' },
-    { msg: tenor.gif(key), channel: 'skills' },
-  ])
+describe('Skills & Damage', () => {
+  const channel = 'skills'
+  // test stuff
+  test('Greater than 40 dmg to boss', () => {
+    const key = 'dmg_high'
+    expect(generateMessages(fixtures[key])).toEqual([
+      { msg: fixtures[key].chat.text, channel },
+      { msg: tenor.gif(key), channel },
+    ])
+  })
+
+  test('Dmg between 20 and 40 to boss', () => {
+    const key = 'dmg_mid'
+    expect(generateMessages(fixtures[key])).toEqual([
+      { msg: fixtures[key].chat.text, channel },
+      { msg: tenor.gif(key), channel },
+    ])
+  })
+
+  test('Less than 20 dmg to boss', () => {
+    const key = 'dmg_low'
+    expect(generateMessages(fixtures[key])).toEqual([
+      { msg: fixtures[key].chat.text, channel },
+    ])
+  })
+
+  test('Sustained more than 8 dmg', () => {
+    const key = 'dmg_sustained'
+    expect(generateMessages(fixtures[key])).toEqual([
+      { msg: fixtures[key].chat.text, channel },
+      { msg: tenor.gif(key), channel },
+    ])
+  })
 })
 
-test('Dmg between 20 and 40 to boss', () => {
-  const key = 'dmg_mid'
-  expect(generateMessages(fixtures[key])).toEqual([
-    { msg: fixtures[key].chat.text, channel: 'skills' },
-    { msg: tenor.gif(key), channel: 'skills' },
-  ])
-})
+describe('Quests', () => {
+  const channel = 'quests'
 
-test('Less than 20 dmg to boss', () => {
-  const key = 'dmg_low'
-  expect(generateMessages(fixtures[key])).toEqual([
-    { msg: fixtures[key].chat.text, channel: 'skills' },
-  ])
-})
+  test('Quest start', () => {
+    const key = 'quest_start'
+    expect(generateMessages(fixtures[key])).toEqual([
+      { msg: fixtures[key].chat.text, channel },
+      { msg: tenor.gif(key), channel },
+    ])
+  })
 
-test('Sustained more than 8 dmg', () => {
-  const key = 'dmg_sustained'
-  expect(generateMessages(fixtures[key])).toEqual([
-    { msg: fixtures[key].chat.text, channel: 'skills' },
-    { msg: tenor.gif(key), channel: 'skills' },
-  ])
+  test('Quest invite', () => {
+    const key = 'quest_invite'
+    expect(generateMessages(fixtures[key])).toEqual([
+      { msg: customTexts[key], channel },
+      { msg: tenor.gif(key), channel },
+    ])
+  })
+
+  test('Quest finish', () => {
+    const key = 'quest_finish'
+    expect(generateMessages(fixtures[key])).toEqual([
+      { msg: fixtures[key].chat.text, channel },
+      { msg: tenor.gif(key), channel },
+    ])
+  })
 })
 
 test('Non system messages', () => {
   const key = 'non_system_msg'
   expect(generateMessages(fixtures[key])).toEqual([])
-})
-
-test.only('Quest start', () => {
-  const key = 'quest_start'
-  expect(generateMessages(fixtures[key])).toEqual(
-    { msg: fixtures[key].chat.text, channel: 'quests' },
-    { msg: tenor.gif(key), channel: 'quests' }
-  )
 })

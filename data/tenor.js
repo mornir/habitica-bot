@@ -12,15 +12,13 @@ export default {
       'lord-of-the-rings-ian-mc-kellen-gandalf-prepare-for-battle-prepare-gif-4879285',
     ],
     quest_finish: ['clapping-clap-applause-lotr-lord-gif-5730286'],
+    error: 'debugging-we-bare-bears-panda-grizzly-polar-bear-gif-7268856',
   },
   gif(key) {
     // TODO: handle missing key by showing a missing gif
 
     if (!this.GIFS[key]) {
-      return (
-        this.TENOR_URL +
-        'debugging-we-bare-bears-panda-grizzly-polar-bear-gif-7268856'
-      )
+      return this.TENOR_URL + this.GIFS.error
     }
 
     return this.TENOR_URL + this.GIFS[key][0]
