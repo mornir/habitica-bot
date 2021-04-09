@@ -1,0 +1,255 @@
+export default {
+  dmg_high: {
+    group: {
+      id: 'xxxxxxxxx-c888-4dbf-aa0e-fc317c9c8f8c',
+      name: 'super_squad ',
+    },
+    chat: {
+      flagCount: 0,
+      _id: 'xxxxxxxxx-d9ee-4307-8e5a-95ef0f925a1c',
+      flags: {},
+      id: 'xxxxxxxxx-d9ee-4307-8e5a-95ef0f925a1c',
+      text:
+        '`moonchild attacks Zombie Sabre Cat for 45.7 damage. Zombie Sabre Cat attacks party for 4.6 damage.`',
+      unformattedText:
+        'moonchild attacks Zombie Sabre Cat for 45.7 damage. Zombie Sabre Cat attacks party for 4.6 damage.',
+      info: {
+        type: 'boss_damage',
+        user: 'moonchild',
+        quest: 'sabretooth',
+        userDamage: '45.7',
+        bossDamage: '4.6',
+      },
+      timestamp: 1615416736267,
+      likes: {},
+      uuid: 'system',
+      groupId: 'xxxxxxxxx-b949-4dbf-aa0e-fc317c9cbf8c',
+    },
+    webhookType: 'groupChatReceived',
+    user: { _id: 'xxxxxxxxx-134d-4e37-bbdc-310351b35729' },
+  },
+  dmg_mid: {
+    group: {
+      id: 'xxxxxxxxx-c888-4dbf-aa0e-fc317c9c8f8c',
+      name: 'super_squad ',
+    },
+    chat: {
+      flagCount: 0,
+      _id: 'xxxxxxxxx-bba8-4646-8ad5-3e554a021eee',
+      flags: {},
+      id: 'xxxxxxxxx-bba8-4646-8ad5-3e554a021eee',
+      text:
+        "`StandardHupe attacks Vice's Shade for 37.7 damage. Vice's Shade attacks party for 0.0 damage.`",
+      unformattedText:
+        "StandardHupe attacks Vice's Shade for 37.7 damage. Vice's Shade attacks party for 0.0 damage.",
+      info: {
+        type: 'boss_damage',
+        user: 'StandardHupe',
+        quest: 'vice1',
+        userDamage: '37.7',
+        bossDamage: '0.0',
+      },
+      timestamp: 1615114136926,
+      likes: {},
+      uuid: 'system',
+      groupId: 'xxxxxxxxx-b949-4dbf-aa0e-fc317c9cbf8c',
+    },
+    webhookType: 'groupChatReceived',
+    user: { _id: 'xxxxxxxxx-134d-4e37-bbdc-310351b35729' },
+  },
+  dmg_low: {
+    group: {
+      id: 'xxxxxxxxx-c888-4dbf-aa0e-fc317c9c8f8c',
+      name: 'super_squad ',
+    },
+    chat: {
+      flagCount: 0,
+      _id: 'xxxxxxxxx-d630-45b8-9162-da087f7e2456',
+      flags: {},
+      id: 'xxxxxxxxx-d630-45b8-9162-da087f7e2456',
+      text:
+        "`Marshmallow attacks Vice's Shade for 10.5 damage. Vice's Shade attacks party for 0.0 damage.`",
+      unformattedText:
+        "Marshmallow attacks Vice's Shade for 10.5 damage. Vice's Shade attacks party for 0.0 damage.",
+      info: {
+        type: 'boss_damage',
+        user: 'Marshmallow',
+        quest: 'vice1',
+        userDamage: '10.5',
+        bossDamage: '0.0',
+      },
+      timestamp: 1615134845081,
+      likes: {},
+      uuid: 'system',
+      groupId: 'xxxxxxxxx-b949-4dbf-aa0e-fc317c9cbf8c',
+    },
+    webhookType: 'groupChatReceived',
+    user: { _id: 'xxxxxxxxx-134d-4e37-bbdc-310351b35729' },
+  },
+  dmg_sustained: {
+    group: {
+      id: 'xxxxxx-c888-4dbf-aa0e-fc317c9c8f8c',
+      name: 'super_squad ',
+    },
+    chat: {
+      flagCount: 0,
+      _id: 'xxxx-bba8-4646-8ad5-3e554a021eee',
+      flags: {},
+      id: 'xxxxx-bba8-4646-8ad5-3e554a021eee',
+      text:
+        "`StandardHupe attacks Vice's Shade for 12 damage. Vice's Shade attacks party for 8.1 damage.`",
+      unformattedText:
+        "StandardHupe attacks Vice's Shade for 12 damage. Vice's Shade attacks party for 8.1 damage.",
+      info: {
+        type: 'boss_damage',
+        user: 'StandardHupe',
+        quest: 'vice1',
+        userDamage: '88',
+        bossDamage: '8.1',
+      },
+      timestamp: 1615114136926,
+      likes: {},
+      uuid: 'system',
+      groupId: 'xxxxx-b949-4dbf-aa0e-fc317c9cbf8c',
+    },
+    webhookType: 'groupChatReceived',
+    user: { _id: 'xxxxxxx-134d-4e37-bbdc-310351b35729' },
+  },
+  non_system_msg: {
+    group: {
+      id: 'xxxxxxxxx-c888-4dbf-aa0e-fc317c9c8f8c',
+      name: 'super_squad ',
+    },
+    chat: {
+      flagCount: 0,
+      _id: 'xxxxxxxxx-b4b9-4b37-9d5d-9b41338aff3b',
+      flags: {},
+      id: 'xxxxxxxxx-b4b9-4b37-9d5d-9b41338aff3b',
+      text:
+        'first warning, you dealt more than 8damadge. I‘ve copied the rules from discord into the party description for everybody to see. ⚠️',
+      unformattedText:
+        'first warning, you dealt more than 8damadge. I‘ve copied the rules from discord into the party description for everybody to see. ⚠️',
+      info: {},
+      timestamp: 1614975441128,
+      likes: {},
+      client: 'ios',
+      uuid: 'xxxxxxxxx-c095-4b30-9c8c-4041598fe571',
+      contributor: {},
+      backer: {},
+      user: 'Bee 🐝',
+      username: 'Beesistance',
+      groupId: 'xxxxxxxxx-b949-4dbf-aa0e-fc317c9cbf8c',
+      userStyles: {
+        items: {
+          gear: {
+            costume: {
+              armor: 'armor_armoire_antiProcrastinationArmor',
+              head: 'head_armoire_cannoneerBandanna',
+              shield: 'shield_base_0',
+              weapon: 'weapon_special_nomadsScimitar',
+            },
+            equipped: {
+              armor: 'armor_special_2',
+              head: 'head_special_2',
+              shield: 'shield_special_goldenknight',
+              weapon: 'weapon_special_2',
+              headAccessory: 'headAccessory_armoire_gogglesOfBookbinding',
+              eyewear: 'eyewear_armoire_goofyGlasses',
+              body: 'body_armoire_lifeguardWhistle',
+              back: 'back_base_0',
+            },
+          },
+          currentMount: 'Fox-Fluorite',
+          currentPet: 'Owl-Base',
+        },
+        preferences: {
+          hair: {
+            color: 'blond',
+            base: 1,
+            bangs: 2,
+            beard: 0,
+            mustache: 0,
+            flower: 4,
+          },
+          skin: 'ddc994',
+          shirt: 'blue',
+          chair: 'none',
+          size: 'slim',
+          background: 'violet',
+          costume: true,
+        },
+        stats: {
+          class: 'healer',
+          buffs: {
+            seafoam: false,
+            shinySeed: false,
+            spookySparkles: false,
+            snowball: false,
+          },
+        },
+      },
+    },
+    webhookType: 'groupChatReceived',
+    user: { _id: 'xxxxxxxxx-134d-4e37-bbdc-310351b35729' },
+  },
+  quest_start: {
+    group: {
+      id: 'xxxxxxxxx-c888-4dbf-aa0e-fc317c9c8f8c',
+      name: 'super_squad ',
+    },
+    chat: {
+      flagCount: 0,
+      _id: '49247256-6736-41be-9bcf-1a8c5c2f566b',
+      flags: {},
+      id: '49247256-6736-41be-9bcf-1a8c5c2f566b',
+      text: '`Your quest, The Sabre Cat, has started.`',
+      unformattedText: 'Your quest, The Sabre Cat, has started.',
+      info: {
+        type: 'quest_start',
+        quest: 'sabretooth',
+      },
+      timestamp: 1615294378733,
+      likes: {},
+      uuid: 'system',
+      groupId: 'xxxxxxxxx-b949-4dbf-aa0e-fc317c9cbf8c',
+    },
+    webhookType: 'groupChatReceived',
+    user: { _id: 'xxxxxxxxx-134d-4e37-bbdc-310351b35729' },
+  },
+  quest_invite: {
+    type: 'questInvited',
+    group: {
+      id: 'xxxxxxxxx-b949-4dbf-aa0e-fc317c9cbf8c',
+      name: 'friendly_squad ',
+    },
+    quest: { key: 'dilatoryDistress2' },
+    webhookType: 'questActivity',
+    user: { _id: 'xxxxxxxxx-134d-4e37-bbdc-310351b35729' },
+  },
+  quest_finish: {
+    group: {
+      id: 'xxxxxxxxx-c888-4dbf-aa0e-fc317c9c8f8c',
+      name: 'super_squad ',
+    },
+    chat: {
+      flagCount: 0,
+      _id: 'xxxxxxxxx-fd49-486b-b566-9058771b6d9c',
+      flags: {},
+      id: 'xxxxxxxxx-fd49-486b-b566-9058771b6d9c',
+      text:
+        '`You defeated The Basi-List! Questing party members receive the rewards of victory.`',
+      unformattedText:
+        'You defeated The Basi-List! Questing party members receive the rewards of victory.',
+      info: {
+        type: 'boss_defeated',
+        quest: 'basilist',
+      },
+      timestamp: 1614786459638,
+      likes: {},
+      uuid: 'system',
+      groupId: 'xxxxxxxxx-b949-4dbf-aa0e-fc317c9cbf8c',
+    },
+    webhookType: 'groupChatReceived',
+    user: { _id: 'xxxxxxxxx-134d-4e37-bbdc-310351b35729' },
+  },
+}

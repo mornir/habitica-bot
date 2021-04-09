@@ -1,7 +1,7 @@
-const QUEST_INVITE_MSG =
-  '**Come and join us on a new quest! ⚔️  Quest starts in about 24 hours ⏳**'
+import generateMessages from './generateMessages'
+import Toucan from 'toucan-js'
 
-function postToDiscord(msg = '', channel = 'skills') {
+function postToDiscord({ msg = '', channel = 'skills' }) {
   const channels = {
     skills: DISCORD_WEBHOOK_URL,
     quests: DISCORD_QUESTS,
@@ -13,45 +13,28 @@ function postToDiscord(msg = '', channel = 'skills') {
   })
 }
 
-async function handleRequest(request) {
+async function handleRequest(request, sentry) {
   try {
     const payload = await request.json()
-
-    if (payload.webhookType === 'questActivity') {
-      await postToDiscord(QUEST_INVITE_MSG, 'quests')
-      return new Response('OK')
-    }
-
-    const { chat } = payload
-
-    if (chat.uuid === 'system') {
-      if (
-        chat.info.type === 'quest_start' ||
-        chat.info.type === 'boss_defeated'
-      ) {
-        await postToDiscord(chat.text, 'quests')
-      } else {
-        await postToDiscord(chat.text, 'skills')
-      }
-
-      if (
-        chat.info.type === 'boss_damage' &&
-        parseInt(chat.info.userDamage) > 40
-      ) {
-        await postToDiscord(
-          'https://tenor.com/view/damage-thats-alot-of-damage-jon-tron-gif-13054497',
-          'skills'
-        )
-      }
-    }
-
+    const messages = generateMessages(payload)
+    await Promise.all(messages.map((msg) => postToDiscord(msg)))
     return new Response('OK')
   } catch (error) {
     console.error(error)
+    sentry.captureException(error)
     return new Response('OK')
   }
 }
 
 addEventListener('fetch', (event) => {
-  event.respondWith(handleRequest(event.request))
+  const sentry = new Toucan({
+    dsn:
+      'https://331a5a79b60446d1b8783a056efd3390@o567143.ingest.sentry.io/5710790',
+    event,
+    environment: ENVIRONMENT,
+    allowedHeaders: ['user-agent'],
+    allowedSearchParams: /(.*)/,
+  })
+
+  event.respondWith(handleRequest(event.request, sentry))
 })
