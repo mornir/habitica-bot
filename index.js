@@ -17,7 +17,9 @@ async function handleRequest(request, sentry) {
   try {
     const payload = await request.json()
     const messages = generateMessages(payload)
-    await Promise.all(messages.map((msg) => postToDiscord(msg)))
+    for (const message of messages) {
+      await postToDiscord(message)
+    }
     return new Response('OK')
   } catch (error) {
     console.error(error)
