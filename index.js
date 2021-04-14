@@ -24,6 +24,7 @@ async function handleRequest(request, sentry) {
     return new Response('OK')
   } catch (error) {
     console.error(error.message)
+    //TODO: Uncomment
     // sentry.captureException(error)
     return new Response('OK')
   }
