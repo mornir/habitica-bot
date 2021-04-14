@@ -1,13 +1,14 @@
 import generateMessages from './generateMessages'
 import Toucan from 'toucan-js'
 
-function postToDiscord({ msg = '', channel = 'skills' }) {
+function postToDiscord({ msg = '', channel = 'skills', embeds = [] }) {
   const channels = {
     skills: DISCORD_WEBHOOK_URL,
     quests: DISCORD_QUESTS,
+    quest_non_participants: DISCORD_QUEST_NON_PARTICIPANTS,
   }
   return fetch(channels[channel], {
-    body: JSON.stringify({ content: msg }),
+    body: JSON.stringify({ content: msg, embeds }),
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   })
@@ -16,14 +17,14 @@ function postToDiscord({ msg = '', channel = 'skills' }) {
 async function handleRequest(request, sentry) {
   try {
     const payload = await request.json()
-    const messages = generateMessages(payload)
+    const messages = await generateMessages(payload)
     for (const message of messages) {
       await postToDiscord(message)
     }
     return new Response('OK')
   } catch (error) {
-    console.error(error)
-    sentry.captureException(error)
+    console.error(error.message)
+    // sentry.captureException(error)
     return new Response('OK')
   }
 }
