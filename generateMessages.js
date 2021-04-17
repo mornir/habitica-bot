@@ -8,8 +8,10 @@ export default function generateMessages(payload) {
     messages.push({ msg, channel })
   }
 
-  // If quest invite
-  if (payload.webhookType === 'questActivity') {
+  if (
+    payload.webhookType === 'questActivity' &&
+    payload.type === 'questInvited'
+  ) {
     addMsg(customTexts.quest_invite, 'quests')
     addMsg(tenor.gif('quest_invite'), 'quests')
     return messages
