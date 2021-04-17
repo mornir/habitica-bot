@@ -25,18 +25,20 @@ async function getNonParticipants() {
     },
   }
 
-  const [rawQuest, rawParty] = await Promise.all(
+  // TODO: check if TypeScript would have caught that error (missing brackets)
+  const [rawQuest, rawParty] = await Promise.all([
     fetch('https://habitica.com/api/v3/groups/party', options),
-    fetch('https://habitica.com/api/v3/groups/party/members', options)
-  )
+    fetch('https://habitica.com/api/v3/groups/party/members', options),
+  ])
 
   const quest = await rawQuest.json()
   const party = await rawParty.json()
+
   const questMembers = Object.keys(quest.data.quest.members)
   const partyMembers = party.data
 
   return partyMembers
-    .filter((member) => questMembers.includes(member._id))
+    .filter((member) => !questMembers.includes(member._id))
     .map((nonParticipant) => {
       return {
         title: nonParticipant.profile.name,
@@ -70,8 +72,7 @@ async function handleRequest(request, sentry) {
     return new Response('OK')
   } catch (error) {
     console.error(error.message)
-    //TODO: Uncomment
-    // sentry.captureException(error)
+    //sentry.captureException(error)
     return new Response('OK')
   }
 }
