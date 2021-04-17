@@ -1,45 +1,17 @@
 import tenor from './data/tenor'
 import customTexts from './data/customTexts'
 
-async function getNonParticipants() {
-  const options = {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'x-api-user': X_API_USER,
-      'x-api-key': X_API_KEY,
-    },
-  }
-
-  const [rawQuest, rawParty] = await Promise.all(
-    fetch('https://habitica.com/api/v3/groups/party', options),
-    fetch('https://habitica.com/api/v3/groups/party/members', options)
-  )
-
-  const quest = await rawQuest.json()
-  const party = await rawParty.json()
-  const questMembers = Object.keys(quest.data.quest.members)
-  const partyMembers = party.data
-
-  return partyMembers
-    .filter((member) => questMembers.includes(member._id))
-    .map((nonParticipant) => {
-      return {
-        title: nonParticipant.profile.name,
-        url: 'https://habitica.com/profile/' + nonParticipant._id,
-      }
-    })
-}
-
-export default async function generateMessages(payload) {
+export default function generateMessages(payload) {
   const messages = []
 
   function addMsg(msg, channel) {
     messages.push({ msg, channel })
   }
 
-  // If quest invite
-  if (payload.webhookType === 'questActivity') {
+  if (
+    payload.webhookType === 'questActivity' &&
+    payload.type === 'questInvited'
+  ) {
     addMsg(customTexts.quest_invite, 'quests')
     addMsg(tenor.gif('quest_invite'), 'quests')
     return messages
@@ -51,14 +23,7 @@ export default async function generateMessages(payload) {
 
   if (chat.info.type === 'quest_start') {
     addMsg(chat.text, 'quests')
-    //addMsg(tenor.gif('quest_start'), 'quests')
-    const nonParticipants = await getNonParticipants()
-
-    addMsg(
-      customTexts.quest_non_participants,
-      'quest_non_participants',
-      nonParticipants
-    )
+    addMsg(tenor.gif('quest_start'), 'quests')
     return messages
   }
 
