@@ -1,38 +1,34 @@
 import tenor from './data/tenor'
 import customTexts from './data/customTexts'
 
-const HABITICA_USER = 'https://habitica.com/api/v3/members/'
-
 async function getNonParticipants() {
-  const res = await fetch(
-    'https://habitica.com/api/v3/groups/5f38dbe0-b949-4dbf-aa0e-fc317c9cbf8c',
-    {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'x-api-user': X_API_USER,
-        'x-api-key': X_API_KEY,
-      },
-    }
+  const options = {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'x-api-user': X_API_USER,
+      'x-api-key': X_API_KEY,
+    },
+  }
+
+  const [rawQuest, rawParty] = await Promise.all(
+    fetch('https://habitica.com/api/v3/groups/party', options),
+    fetch('https://habitica.com/api/v3/groups/party/members', options)
   )
-  const group = await res.json()
-  const members = group.data.quest.members
 
-  const nonParticipatingsMembers = Object.entries(members)
-    .map(([id, isParticipating]) => ({ id, isParticipating }))
-    .filter((member) => member.isParticipating === null)
+  const quest = await rawQuest.json()
+  const party = await rawParty.json()
+  const questMembers = Object.keys(quest.data.quest.members)
+  const partyMembers = party.data
 
-  const responses = await Promise.all(
-    nonParticipatingsMembers.map(({ id }) => fetch(HABITICA_USER + id))
-  )
-  const users = await Promise.all(responses.map((res) => res.json()))
-
-  return users.map((user) => {
-    return {
-      title: user.data.profile.name,
-      url: HABITICA_USER + user.data._id,
-    }
-  })
+  return partyMembers
+    .filter((member) => questMembers.includes(member._id))
+    .map((nonParticipant) => {
+      return {
+        title: nonParticipant.profile.name,
+        url: 'https://habitica.com/profile/' + nonParticipant._id,
+      }
+    })
 }
 
 export default async function generateMessages(payload) {
@@ -57,7 +53,7 @@ export default async function generateMessages(payload) {
     addMsg(chat.text, 'quests')
     //addMsg(tenor.gif('quest_start'), 'quests')
     const nonParticipants = await getNonParticipants()
-    console.log(nonParticipants[0])
+
     addMsg(
       customTexts.quest_non_participants,
       'quest_non_participants',
