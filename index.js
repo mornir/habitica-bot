@@ -72,7 +72,7 @@ async function handleRequest(request, sentry) {
     return new Response('OK')
   } catch (error) {
     console.error(error.message)
-    //sentry.captureException(error)
+    sentry.captureException(error)
     return new Response('OK')
   }
 }
