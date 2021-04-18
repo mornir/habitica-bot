@@ -4,21 +4,26 @@
   "version": "1.0.0",
   "description": "A template for kick starting a Cloudflare Workers project",
   "main": "index.js",
-  "type": "module",
   "scripts": {
+    "build": "webpack",
+    "dev": "cross-env NODE_ENV=development yarn build",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "format": "prettier --write '**/*.{js,css,json,md}'",
-    "dev": "wrangler dev",
     "deploy": "wrangler publish"
   },
   "author": "mornir <jeromepott@hotmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@cloudflare/workers-types": "^2.2.1",
     "cross-env": "^7.0.3",
     "eslint": "^7.23.0",
     "eslint-plugin-jest": "^24.3.4",
     "jest": "^26.6.3",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "ts-loader": "^8.1.0",
+    "typescript": "^4.2.4",
+    "webpack": "^5.33.2",
+    "webpack-cli": "^4.6.0"
   },
   "jest": {
     "transform": {}

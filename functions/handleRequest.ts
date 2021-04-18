@@ -3,7 +3,10 @@ import generateMessages from './generateMessages'
 import getNonParticipants from './getNonParticipants'
 import customTexts from '../data/customTexts'
 
-export default async function handleRequest(request, sentry) {
+export default async function handleRequest(
+  request: Request,
+  sentry: any
+): Promise<Response> {
   try {
     const payload = await request.json()
 

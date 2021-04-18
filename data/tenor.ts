@@ -14,7 +14,7 @@ export default {
     quest_finish: ['clapping-clap-applause-lotr-lord-gif-5730286'],
     error: 'debugging-we-bare-bears-panda-grizzly-polar-bear-gif-7268856',
   },
-  gif(key) {
+  gif(key: string) {
     // TODO: handle missing key by showing a missing gif
 
     if (!this.GIFS[key]) {
