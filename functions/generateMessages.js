@@ -1,5 +1,5 @@
-import tenor from './data/tenor'
-import customTexts from './data/customTexts'
+import tenor from '../data/tenor'
+import customTexts from '../data/customTexts'
 
 export default function generateMessages(payload) {
   const messages = []
