@@ -1,4 +1,13 @@
-export default {
+type GIF =
+  | 'dmg_high'
+  | 'dmg_mid'
+  | 'dmg_sustained'
+  | 'quest_invite'
+  | 'quest_start'
+  | 'quest_finish'
+  | 'error'
+
+const tenor = {
   TENOR_URL: 'https://tenor.com/view/',
   GIFS: {
     dmg_high: ['damage-thats-alot-of-damage-jon-tron-gif-13054497'],
@@ -14,7 +23,7 @@ export default {
     quest_finish: ['clapping-clap-applause-lotr-lord-gif-5730286'],
     error: 'debugging-we-bare-bears-panda-grizzly-polar-bear-gif-7268856',
   },
-  gif(key: string) {
+  gif(key: GIF) {
     // TODO: handle missing key by showing a missing gif
 
     if (!this.GIFS[key]) {
@@ -24,3 +33,5 @@ export default {
     return this.TENOR_URL + this.GIFS[key][0]
   },
 }
+
+export default tenor

@@ -1,6 +1,7 @@
+type Channel = 'skills' | 'quests' | 'quest_non_participants'
 export default function postToDiscord({
   msg = '',
-  channel = 'skills',
+  channel = 'skills' as Channel,
   embeds = [],
 }) {
   const channels = {
@@ -14,3 +15,5 @@ export default function postToDiscord({
     headers: { 'Content-Type': 'application/json' },
   })
 }
+
+export { Channel }

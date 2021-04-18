@@ -1,10 +1,13 @@
 import tenor from '../data/tenor'
 import customTexts from '../data/customTexts'
+import { Channel } from './postToDiscord'
 
-export default function generateMessages(payload) {
-  const messages = []
+type Message = { msg: string; channel: Channel }
 
-  function addMsg(msg, channel) {
+export default function generateMessages(payload: any) {
+  const messages: Message[] = []
+
+  function addMsg(msg: string, channel: Channel) {
     messages.push({ msg, channel })
   }
 

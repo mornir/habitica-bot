@@ -9,7 +9,8 @@
     "dev": "cross-env NODE_ENV=development yarn build",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "format": "prettier --write '**/*.{js,css,json,md}'",
-    "deploy": "wrangler publish"
+    "deploy": "wrangler publish",
+    "lint": "tsc --noEmit"
   },
   "author": "mornir <jeromepott@hotmail.com>",
   "license": "MIT",

@@ -16,7 +16,7 @@
     "./index.ts",
     "./functions/*.ts",
     "./data/*.ts",
-    "./global.d.ts",
+    "./types/global.d.ts",
     "./node_modules/@cloudflare/workers-types/index.d.ts"
   ],
   "exclude": ["node_modules/", "dist/"]
