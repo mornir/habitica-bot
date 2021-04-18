@@ -105,7 +105,7 @@ export default {
         user: 'StandardHupe',
         quest: 'vice1',
         userDamage: '88',
-        bossDamage: '8.1',
+        bossDamage: '5.1',
       },
       timestamp: 1615114136926,
       likes: {},
