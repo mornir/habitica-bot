@@ -5,9 +5,14 @@ type GIF =
   | 'quest_invite'
   | 'quest_start'
   | 'quest_finish'
-  | 'error'
 
-const tenor = {
+interface Tenor {
+  TENOR_URL: string
+  GIFS: { [key in GIF]: string[] } & { error: string }
+  gif(key: GIF): string
+}
+
+const tenor: Tenor = {
   TENOR_URL: 'https://tenor.com/view/',
   GIFS: {
     dmg_high: ['damage-thats-alot-of-damage-jon-tron-gif-13054497'],
@@ -24,12 +29,9 @@ const tenor = {
     error: 'debugging-we-bare-bears-panda-grizzly-polar-bear-gif-7268856',
   },
   gif(key: GIF) {
-    // TODO: handle missing key by showing a missing gif
-
     if (!this.GIFS[key]) {
       return this.TENOR_URL + this.GIFS.error
     }
-
     return this.TENOR_URL + this.GIFS[key][0]
   },
 }
