@@ -10,8 +10,7 @@
     "test": "jest",
     "format": "prettier --write '**/*.{js,css,json,md}'",
     "deploy": "wrangler publish",
-    "lint": "tsc --noEmit && eslint . --ext .ts",
-    "prep-test": "tsc ./functions/*.ts --outDir ./tests"
+    "lint": "tsc --noEmit && eslint . --ext .ts"
   },
   "author": "mornir <jeromepott@hotmail.com>",
   "license": "MIT",
