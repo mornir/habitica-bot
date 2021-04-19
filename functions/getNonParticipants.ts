@@ -5,7 +5,7 @@ interface Member {
   }
 }
 
-export default async function getNonParticipants() {
+export default async function getNonParticipants(): Promise<Embed[]> {
   const options = {
     method: 'GET',
     headers: {
