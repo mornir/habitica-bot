@@ -1,3 +1,10 @@
+interface Member {
+  _id: string
+  profile: {
+    name: string
+  }
+}
+
 export default async function getNonParticipants() {
   const options = {
     method: 'GET',
@@ -21,8 +28,8 @@ export default async function getNonParticipants() {
   const partyMembers = party.data
 
   return partyMembers
-    .filter((member: any) => !questMembers.includes(member._id))
-    .map((nonParticipant: any) => {
+    .filter((member: Member) => !questMembers.includes(member._id))
+    .map((nonParticipant: Member) => {
       return {
         title: nonParticipant.profile.name,
         url: 'https://habitica.com/profile/' + nonParticipant._id,

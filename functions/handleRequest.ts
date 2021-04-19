@@ -2,10 +2,11 @@ import postToDiscord from './postToDiscord'
 import generateMessages from './generateMessages'
 import getNonParticipants from './getNonParticipants'
 import customTexts from '../data/customTexts'
+import Toucan from 'toucan-js'
 
 export default async function handleRequest(
   request: Request,
-  sentry: any
+  sentry: Toucan
 ): Promise<Response> {
   try {
     const payload = await request.json()
