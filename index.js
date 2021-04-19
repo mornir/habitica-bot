@@ -1,32 +1,5 @@
-import generateMessages from './generateMessages'
+import handleRequest from './functions/handleRequest'
 import Toucan from 'toucan-js'
-
-function postToDiscord({ msg = '', channel = 'skills' }) {
-  const channels = {
-    skills: DISCORD_WEBHOOK_URL,
-    quests: DISCORD_QUESTS,
-  }
-  return fetch(channels[channel], {
-    body: JSON.stringify({ content: msg }),
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  })
-}
-
-async function handleRequest(request, sentry) {
-  try {
-    const payload = await request.json()
-    const messages = generateMessages(payload)
-    for (const message of messages) {
-      await postToDiscord(message)
-    }
-    return new Response('OK')
-  } catch (error) {
-    console.error(error)
-    sentry.captureException(error)
-    return new Response('OK')
-  }
-}
 
 addEventListener('fetch', (event) => {
   const sentry = new Toucan({

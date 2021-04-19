@@ -1,7 +1,7 @@
-import fixtures from './data/fixtures'
+import fixtures from '../data/fixtures'
 import generateMessages from './generateMessages'
-import tenor from './data/tenor'
-import customTexts from './data/customTexts'
+import tenor from '../data/tenor'
+import customTexts from '../data/customTexts'
 
 describe('Skills & Damage', () => {
   const channel = 'skills'
