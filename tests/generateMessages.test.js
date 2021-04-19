@@ -1,5 +1,5 @@
 import fixtures from '../data/fixtures'
-import generateMessages from './generateMessages'
+import generateMessages from '../functions/generateMessages'
 import tenor from '../data/tenor'
 import customTexts from '../data/customTexts'
 
