@@ -1,7 +1,7 @@
-import fixtures from '../data/fixtures'
-import generateMessages from '../functions/generateMessages'
-import tenor from '../data/tenor'
-import customTexts from '../data/customTexts'
+const generateMessages = require('../dist/functions/generateMessages')
+const fixtures = require('../dist/data/fixtures')
+const tenor = require('../dist/data/tenor')
+const customTexts = require('../dist/data/customTexts')
 
 describe('Skills & Damage', () => {
   const channel = 'skills'
