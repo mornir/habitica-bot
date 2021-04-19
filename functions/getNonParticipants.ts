@@ -21,8 +21,8 @@ export default async function getNonParticipants() {
   const partyMembers = party.data
 
   return partyMembers
-    .filter((member) => !questMembers.includes(member._id))
-    .map((nonParticipant) => {
+    .filter((member: any) => !questMembers.includes(member._id))
+    .map((nonParticipant: any) => {
       return {
         title: nonParticipant.profile.name,
         url: 'https://habitica.com/profile/' + nonParticipant._id,
