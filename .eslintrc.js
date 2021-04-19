@@ -1,16 +1,21 @@
 module.exports = {
   root: true,
+  parser: '@typescript-eslint/parser',
   env: {
     browser: true,
     es2021: true,
     'jest/globals': true,
   },
-  extends: 'eslint:recommended',
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
   parserOptions: {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['jest'],
+  plugins: ['jest', '@typescript-eslint'],
   rules: {},
   globals: {
     DISCORD_WEBHOOK_URL: 'readonly',
