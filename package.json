@@ -7,10 +7,11 @@
   "scripts": {
     "build": "webpack",
     "dev": "cross-env NODE_ENV=development yarn build",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "test": "jest",
     "format": "prettier --write '**/*.{js,css,json,md}'",
     "deploy": "wrangler publish",
-    "lint": "tsc --noEmit && eslint . --ext .ts"
+    "lint": "tsc --noEmit && eslint . --ext .ts",
+    "prep-test": "tsc ./functions/*.ts --outDir ./tests"
   },
   "author": "mornir <jeromepott@hotmail.com>",
   "license": "MIT",
