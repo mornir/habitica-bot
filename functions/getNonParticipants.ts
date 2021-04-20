@@ -15,7 +15,6 @@ export default async function getNonParticipants(): Promise<Embed[]> {
     },
   }
 
-  // TODO: check if TypeScript would have caught that error (missing brackets)
   const [rawQuest, rawParty] = await Promise.all([
     fetch('https://habitica.com/api/v3/groups/party', options),
     fetch('https://habitica.com/api/v3/groups/party/members', options),
