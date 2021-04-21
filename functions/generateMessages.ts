@@ -4,6 +4,16 @@ import { Channel } from './postToDiscord'
 
 type Message = { msg: string; channel: Channel }
 
+type SkillCode = keyof typeof customTexts.skills
+
+function generateSkillMessage(user: string, skillCode: SkillCode) {
+  const skill = customTexts.skills[skillCode]
+  if (!skill) {
+    return 'Error: No skill found'
+  }
+  return skill.text.replace('@user', user).replace('@skill', skill.name)
+}
+
 export default function generateMessages(payload: any) {
   const messages: Message[] = []
 
@@ -33,6 +43,11 @@ export default function generateMessages(payload: any) {
   if (chat.info.type === 'boss_defeated') {
     addMsg(chat.text, 'quests')
     addMsg(tenor.gif('quest_finish'), 'quests')
+    return messages
+  }
+
+  if (chat.info.type === 'spell_cast_party') {
+    addMsg(generateSkillMessage(chat.info.user, chat.info.spell), 'skills')
     return messages
   }
 
