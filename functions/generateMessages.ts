@@ -14,7 +14,7 @@ function generateSkillMessage(user: string, skillCode: SkillCode) {
   return skill.text.replace('@user', user).replace('@skill', skill.name)
 }
 
-export default function generateMessages(payload: any) {
+export default function generateMessages(payload: any): Message[] {
   const messages: Message[] = []
 
   function addMsg(msg: string, channel: Channel) {
