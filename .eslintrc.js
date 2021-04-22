@@ -2,9 +2,11 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   env: {
+    node: true,
     browser: true,
     es2021: true,
     'jest/globals': true,
+    'cypress/globals': true,
   },
   extends: [
     'eslint:recommended',
@@ -15,7 +17,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['jest', '@typescript-eslint'],
+  plugins: ['jest', '@typescript-eslint', 'cypress'],
   rules: {},
   globals: {
     DISCORD_WEBHOOK_URL: 'readonly',
