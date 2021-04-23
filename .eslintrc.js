@@ -5,7 +5,6 @@ module.exports = {
     node: true,
     browser: true,
     es2021: true,
-    'jest/globals': true,
     'cypress/globals': true,
   },
   extends: [
@@ -17,7 +16,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['jest', '@typescript-eslint', 'cypress'],
+  plugins: ['@typescript-eslint', 'cypress'],
   rules: {},
   globals: {
     DISCORD_WEBHOOK_URL: 'readonly',
