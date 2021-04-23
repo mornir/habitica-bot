@@ -1,7 +1,9 @@
+type Channel = 'skills' | 'quests' | 'quest_non_participants'
+
 export default function postToDiscord({
   msg = '',
-  channel = 'skills',
-  embeds = [],
+  channel = 'skills' as Channel,
+  embeds = [] as Embed[],
 }) {
   const channels = {
     skills: DISCORD_WEBHOOK_URL,
@@ -14,3 +16,5 @@ export default function postToDiscord({
     headers: { 'Content-Type': 'application/json' },
   })
 }
+
+export { Channel }

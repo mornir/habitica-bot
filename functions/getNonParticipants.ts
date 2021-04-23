@@ -1,4 +1,11 @@
-export default async function getNonParticipants() {
+interface Member {
+  _id: string
+  profile: {
+    name: string
+  }
+}
+
+export default async function getNonParticipants(): Promise<Embed[]> {
   const options = {
     method: 'GET',
     headers: {
@@ -8,7 +15,6 @@ export default async function getNonParticipants() {
     },
   }
 
-  // TODO: check if TypeScript would have caught that error (missing brackets)
   const [rawQuest, rawParty] = await Promise.all([
     fetch('https://habitica.com/api/v3/groups/party', options),
     fetch('https://habitica.com/api/v3/groups/party/members', options),
@@ -21,8 +27,8 @@ export default async function getNonParticipants() {
   const partyMembers = party.data
 
   return partyMembers
-    .filter((member) => !questMembers.includes(member._id))
-    .map((nonParticipant) => {
+    .filter((member: Member) => !questMembers.includes(member._id))
+    .map((nonParticipant: Member) => {
       return {
         title: nonParticipant.profile.name,
         url: 'https://habitica.com/profile/' + nonParticipant._id,
