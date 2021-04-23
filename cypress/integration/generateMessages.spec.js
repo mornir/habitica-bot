@@ -47,6 +47,15 @@ describe('Skills Channel', () => {
       checkChannel(body, channel)
     })
   })
+
+  it.only('Displays skill with explanation', () => {
+    cy.request('POST', '/', messages.healAll).should(({ body }) => {
+      expect(body).to.have.length(1)
+      expect(body[0].msg).to.equal(
+        '💖 Bee 🐝 casts Blessing for the party. Everyone recovers some health! 💖'
+      )
+    })
+  })
 })
 
 describe('Quest', () => {

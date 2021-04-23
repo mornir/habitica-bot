@@ -128,56 +128,7 @@
       "backer": {},
       "user": "Bee 🐝",
       "username": "Beesistance",
-      "groupId": "xxxxxxxxx-b949-4dbf-aa0e-fc317c9cbf8c",
-      "userStyles": {
-        "items": {
-          "gear": {
-            "costume": {
-              "armor": "armor_armoire_antiProcrastinationArmor",
-              "head": "head_armoire_cannoneerBandanna",
-              "shield": "shield_base_0",
-              "weapon": "weapon_special_nomadsScimitar"
-            },
-            "equipped": {
-              "armor": "armor_special_2",
-              "head": "head_special_2",
-              "shield": "shield_special_goldenknight",
-              "weapon": "weapon_special_2",
-              "headAccessory": "headAccessory_armoire_gogglesOfBookbinding",
-              "eyewear": "eyewear_armoire_goofyGlasses",
-              "body": "body_armoire_lifeguardWhistle",
-              "back": "back_base_0"
-            }
-          },
-          "currentMount": "Fox-Fluorite",
-          "currentPet": "Owl-Base"
-        },
-        "preferences": {
-          "hair": {
-            "color": "blond",
-            "base": 1,
-            "bangs": 2,
-            "beard": 0,
-            "mustache": 0,
-            "flower": 4
-          },
-          "skin": "ddc994",
-          "shirt": "blue",
-          "chair": "none",
-          "size": "slim",
-          "background": "violet",
-          "costume": true
-        },
-        "stats": {
-          "class": "healer",
-          "buffs": {
-            "seafoam": false,
-            "shinySeed": false,
-            "spookySparkles": false,
-            "snowball": false
-          }
-        }
-      }
+      "groupId": "xxxxxxxxx-b949-4dbf-aa0e-fc317c9cbf8c"
     },
     "webhookType": "groupChatReceived",
     "user": { "_id": "xxxxxxxxx-134d-4e37-bbdc-310351b35729" }
@@ -236,6 +187,32 @@
       "likes": {},
       "uuid": "system",
       "groupId": "xxxxxxxxx-b949-4dbf-aa0e-fc317c9cbf8c"
+    },
+    "webhookType": "groupChatReceived",
+    "user": { "_id": "xxxxxxxxx-134d-4e37-bbdc-310351b35729" }
+  },
+  "healAll": {
+    "group": {
+      "id": "xxxxxxxxx-c888-4dbf-aa0e-fc317c9c8f8c",
+      "name": "super_squad "
+    },
+    "chat": {
+      "flagCount": 0,
+      "_id": "xxxxxxxx-f344-445b-9b91-619d2ee99885",
+      "flags": {},
+      "id": "xxxxxxx-f344-445b-9b91-619d2ee99885",
+      "text": "`Bee 🐝 casts Blessing for the party.`",
+      "unformattedText": "Bee 🐝 casts Blessing for the party.",
+      "info": {
+        "type": "spell_cast_party",
+        "user": "Bee 🐝",
+        "class": "healer",
+        "spell": "healAll"
+      },
+      "timestamp": 1614974696578,
+      "likes": {},
+      "uuid": "system",
+      "groupId": "xxxxxx-b949-4dbf-aa0e-fc317c9cbf8c"
     },
     "webhookType": "groupChatReceived",
     "user": { "_id": "xxxxxxxxx-134d-4e37-bbdc-310351b35729" }
