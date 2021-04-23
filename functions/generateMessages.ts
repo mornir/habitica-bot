@@ -11,7 +11,12 @@ function generateSkillMessage(user: string, skillCode: SkillCode) {
   if (!skill) {
     return 'Error: No skill found'
   }
-  return skill.text.replace('@user', user).replace('@skill', skill.name)
+  function bold(text: string) {
+    return '**' + text + '**'
+  }
+  return skill.text
+    .replace('@user', bold(user))
+    .replace('@skill', bold(skill.name))
 }
 
 export default function generateMessages(payload: any): Message[] {
