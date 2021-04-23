@@ -33,8 +33,11 @@ export default async function handleRequest(
     }
 
     const messages = await generateMessages(payload)
-    for (const message of messages) {
-      await postToDiscord(message)
+
+    if (ENVIRONMENT !== 'test') {
+      for (const message of messages) {
+        await postToDiscord(message)
+      }
     }
 
     return new Response(JSON.stringify(messages), {

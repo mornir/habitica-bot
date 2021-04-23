@@ -25,5 +25,6 @@ module.exports = {
     X_API_USER: 'readonly',
     X_API_KEY: 'readonly',
     DISCORD_QUEST_NON_PARTICIPANTS: 'readonly',
+    TEST: 'readonly',
   },
 }

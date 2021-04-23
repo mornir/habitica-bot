@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
+    "test-server": "wrangler dev --env test",
     "dev": "cross-env NODE_ENV=development yarn build",
     "test": "cypress open",
     "test:ci": "cypress run",
