@@ -4,7 +4,7 @@ export default function postToDiscord({
   msg = '',
   channel = 'skills' as Channel,
   embeds = [] as Embed[],
-}) {
+}): Promise<Response> {
   const channels = {
     skills: DISCORD_WEBHOOK_URL,
     quests: DISCORD_QUESTS,

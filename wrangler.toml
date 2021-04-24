@@ -9,3 +9,9 @@ webpack_config = "webpack.config.js"
 name = "habitica-bot"
 workers_dev = true
 vars = { ENVIRONMENT = "production" }
+
+
+[env.test]
+name = "habitica-bot-test"
+workers_dev = true
+vars = { ENVIRONMENT = "test" }
