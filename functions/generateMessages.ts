@@ -8,15 +8,14 @@ type SkillCode = keyof typeof customTexts.skills
 
 function generateSkillMessage(user: string, skillCode: SkillCode) {
   const skill = customTexts.skills[skillCode]
+
   if (!skill) {
     return 'Error: No skill found'
   }
-  function bold(text: string) {
-    return '**' + text + '**'
-  }
-  return skill.text
-    .replace('@user', bold(user))
-    .replace('@skill', bold(skill.name))
+
+  const { emoji, text, name } = skill
+
+  return `${emoji}  **${user}** casts **${name}** for the party. ${text}  ${emoji}`
 }
 
 export default function generateMessages(payload: any): Message[] {

@@ -6,38 +6,41 @@ export default {
   skills: {
     healAll: {
       name: 'Blessing',
-      text:
-        '💖 @user casts @skill for the party. Everyone recovers some **health**! 💖',
+      emoji: '💖',
+      text: 'Everyone recovers some **health**!',
     },
     protectAura: {
       name: 'Protective Aura',
+      emoji: '🛡️',
       text:
-        '🛡️ @user casts @skill for the party. Everyone **takes less damage** from their missed dailies and bad habits! 🛡️',
+        'Everyone **takes less damage** from their missed dailies and bad habits!',
     },
     toolsOfTrade: {
       name: 'Tools of the Trade',
+      emoji: '💰',
       text:
-        '💰 @user casts @skill for the party. The rate of earning **gold** and **special items** is increased for everyone! 💰',
+        'The rate of earning **gold** and **special items** is increased for everyone!',
     },
     intimidate: {
       name: 'Intimidating Gaze',
+      emoji: '🛡️',
       text:
-        '🛡️ @user casts @skill for the party. Everyone **takes less damage** from their missed dailies and bad habits! 🛡️',
+        'Everyone **takes less damage** from their missed dailies and bad habits!',
     },
     valorousPresence: {
       name: 'Valorous Presence',
-      text:
-        '💪 @user casts @skill for the party. Everyone **deals more damage** to the boss! 💪',
+      emoji: '💪',
+      text: 'Everyone **deals more damage** to the boss!',
     },
     earth: {
       name: 'Earthquake',
-      text:
-        '✨ @user casts @skill for the party. The rate of earning **XP** is increased for everyone! ✨',
+      emoji: '✨',
+      text: 'The rate of earning **XP** is increased for everyone!',
     },
     mpheal: {
       name: 'Ethereal Surge',
-      text:
-        '✨ @user casts @skill for the party. Everyone (except for mages) gains **mana points**! ✨',
+      emoji: '✨',
+      text: 'Everyone (except for mages) gains **mana points**! ',
     },
   },
 }
