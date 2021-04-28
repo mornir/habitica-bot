@@ -24,14 +24,27 @@ export default async function handleRequest(
           embeds: nonParticipants,
         })
       }
-      return new Response('OK')
+
+      return new Response(JSON.stringify(nonParticipants), {
+        headers: {
+          'content-type': 'application/json;charset=UTF-8',
+        },
+      })
     }
 
     const messages = await generateMessages(payload)
-    for (const message of messages) {
-      await postToDiscord(message)
+
+    if (ENVIRONMENT !== 'test') {
+      for (const message of messages) {
+        await postToDiscord(message)
+      }
     }
-    return new Response('OK')
+
+    return new Response(JSON.stringify(messages), {
+      headers: {
+        'content-type': 'application/json;charset=UTF-8',
+      },
+    })
   } catch (error) {
     console.error(error.message)
     sentry.captureException(error)

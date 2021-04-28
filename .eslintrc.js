@@ -2,9 +2,10 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   env: {
+    node: true,
     browser: true,
     es2021: true,
-    'jest/globals': true,
+    'cypress/globals': true,
   },
   extends: [
     'eslint:recommended',
@@ -15,7 +16,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['jest', '@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'cypress'],
   rules: {},
   globals: {
     DISCORD_WEBHOOK_URL: 'readonly',
@@ -24,5 +25,6 @@ module.exports = {
     X_API_USER: 'readonly',
     X_API_KEY: 'readonly',
     DISCORD_QUEST_NON_PARTICIPANTS: 'readonly',
+    TEST: 'readonly',
   },
 }

@@ -6,8 +6,10 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
+    "test-server": "wrangler dev --env test",
     "dev": "cross-env NODE_ENV=development yarn build",
-    "test": "jest",
+    "test": "yarn test-server && cypress open",
+    "test:ci": "cypress run",
     "format": "prettier --write '**/*.{js,css,json,md}'",
     "deploy": "wrangler publish",
     "lint": "tsc --noEmit && eslint . --ext .ts"
@@ -19,17 +21,14 @@
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "cross-env": "^7.0.3",
+    "cypress": "^7.1.0",
     "eslint": "^7.23.0",
-    "eslint-plugin-jest": "^24.3.4",
-    "jest": "^26.6.3",
+    "eslint-plugin-cypress": "^2.11.2",
     "prettier": "^2.2.1",
     "ts-loader": "^8.1.0",
     "typescript": "^4.2.4",
     "webpack": "^5.33.2",
     "webpack-cli": "^4.6.0"
-  },
-  "jest": {
-    "transform": {}
   },
   "dependencies": {
     "toucan-js": "^2.4.1"
