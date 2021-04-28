@@ -8,7 +8,7 @@
     "build": "webpack",
     "test-server": "wrangler dev --env test",
     "dev": "cross-env NODE_ENV=development yarn build",
-    "test": "cypress open",
+    "test": "yarn test-server && cypress open",
     "test:ci": "cypress run",
     "format": "prettier --write '**/*.{js,css,json,md}'",
     "deploy": "wrangler publish",

@@ -48,11 +48,11 @@ describe('Skills Channel', () => {
     })
   })
 
-  it.only('Displays skill with explanation', () => {
+  it('Displays skill with explanation', () => {
     cy.request('POST', '/', messages.healAll).should(({ body }) => {
       expect(body).to.have.length(1)
       expect(body[0].msg).to.equal(
-        '💖 **Bee 🐝** casts **Blessing** for the party. Everyone recovers some **health**! 💖'
+        '💖  **Bee 🐝** casts **Blessing** for the party. Everyone recovers some **health**!  💖'
       )
     })
   })
@@ -72,7 +72,7 @@ describe('Quest', () => {
     })
   })
 
-  it.only('Sends invites', () => {
+  it('Sends invites', () => {
     const key = 'quest_invite'
 
     cy.request('POST', '/', messages[key]).should(({ body }) => {
