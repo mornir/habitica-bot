@@ -7,11 +7,11 @@
   "scripts": {
     "build": "webpack",
     "test-server": "wrangler dev --env test",
-    "dev": "cross-env NODE_ENV=development yarn build",
-    "test": "yarn test-server && cypress open",
+    "dev": "wrangler dev",
+    "deploy": "wrangler publish",
+    "test": "cypress open",
     "test:ci": "cypress run",
     "format": "prettier --write '**/*.{js,css,json,md}'",
-    "deploy": "wrangler publish",
     "lint": "tsc --noEmit && eslint . --ext .ts"
   },
   "author": "mornir <jeromepott@hotmail.com>",

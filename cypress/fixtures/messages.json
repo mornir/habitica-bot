@@ -107,6 +107,33 @@
     "webhookType": "groupChatReceived",
     "user": { "_id": "xxxxxxx-134d-4e37-bbdc-310351b35729" }
   },
+  "high_dmg_sustained": {
+    "group": {
+      "id": "xxxxxx-c888-4dbf-aa0e-fc317c9c8f8c",
+      "name": "super_squad "
+    },
+    "chat": {
+      "flagCount": 0,
+      "_id": "xxxx-bba8-4646-8ad5-3e554a021eee",
+      "flags": {},
+      "id": "xxxxx-bba8-4646-8ad5-3e554a021eee",
+      "text": "`StandardHupe attacks Vice's Shade for 12 damage. Vice's Shade attacks party for 8.1 damage.`",
+      "unformattedText": "StandardHupe attacks Vice's Shade for 12 damage. Vice's Shade attacks party for 8.1 damage.",
+      "info": {
+        "type": "boss_damage",
+        "user": "StandardHupe",
+        "quest": "vice1",
+        "userDamage": "88",
+        "bossDamage": "8.1"
+      },
+      "timestamp": 1615114136926,
+      "likes": {},
+      "uuid": "system",
+      "groupId": "xxxxx-b949-4dbf-aa0e-fc317c9cbf8c"
+    },
+    "webhookType": "groupChatReceived",
+    "user": { "_id": "xxxxxxx-134d-4e37-bbdc-310351b35729" }
+  },
   "non_system_msg": {
     "group": {
       "id": "xxxxxxxxx-c888-4dbf-aa0e-fc317c9c8f8c",
