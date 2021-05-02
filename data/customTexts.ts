@@ -40,7 +40,7 @@ export default {
     mpheal: {
       name: 'Ethereal Surge',
       emoji: '✨',
-      text: 'Everyone (except for mages) gains **mana points**! ',
+      text: 'Everyone (except for mages) gains **mana points**!',
     },
   },
 }

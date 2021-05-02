@@ -2,7 +2,48 @@
 
 > A [Cloudflare Worker](https://workers.cloudflare.com/) that makes use of the [Habitica API](https://habitica.com/apidoc/) and [Discord Webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
 
-I blogged about it: https://dev.to/mornir/webhooks-with-serverless-function-2h5k
+I [blogged about it](https://dev.to/mornir/webhooks-with-serverless-function-2h5k), but since then I moved to using Wrangler, which offers much more features:
+
+- Modules
+- TypeScript
+- npm packages
+
+# How things work
+
+The reason the worker returns messages as JSON is only for testing purposes, so that I can make assertions on the response.
+
+Deployments to Cloudflare (dev + production) is done via GitHub Actions
+
+## Commands
+
+## Environments
+
+### test
+
+This is environment is only for E2E testing with Cypress running against localhost. It sets the ENVIRONMENT variable to "test" and prevents real API calls (to Discord or Habitica) to be made. This environement is listed as `habitica-bot-test` in `wrangler.toml`, but it is NOT deployed to Cloudflare.
+
+Command: `yarn test-server` (with hot reloading!)
+Testing (with UI): `yarn test`
+Testing (without UI, faster): `yarn test:ci`
+
+### dev (staging)
+
+This is the default environnment: when no argument is provided to the wrangler CLI, it assumes `dev`. **The corresponding branch on GitHub is named `staging`**.
+Standard staging environnement. Deployed to Cloudflare worker as `habitica-bot-dev`. Messages are posted to a dedicated Discord server for testing.
+
+Command: `yarn dev` (with hot reloading!)
+
+### production
+
+Production worker. Messages are posted to the Habitica Discord server. **The corresponding branch on GitHub is named `master`**.
+
+## Exception and Error Handling
+
+The worker always returns a 200 sucess code, even if errors are thrown. The reason is:
+
+> Best practice is to respond to the Habitica server as soon as you receive a request with a 200 HTTP code and a non-empty response https://habitica.fandom.com/wiki/Webhooks
+
+However, errors thrown are sent to [Sentry.io](https://sentry.io/) before the success code is returned.
 
 # GIFs
 
