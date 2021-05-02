@@ -38,13 +38,28 @@ describe('Skills Channel', () => {
     })
   })
 
-  it('Sustained more than 8 dmg', () => {
+  it('Sustained more than 5 dmg', () => {
     const key = 'dmg_sustained'
     cy.request('POST', '/', messages[key]).should(({ body }) => {
       expect(body).to.have.length(2)
       expect(body[0].msg).to.equal(messages[key].chat.text)
       expect(body[1].msg).to.equal(tenor.gif(key))
       checkChannel(body, channel)
+    })
+  })
+
+  it('Sustained more than 8 dmg', () => {
+    const key = 'high_dmg_sustained'
+    cy.request('POST', '/', messages[key]).should(({ body }) => {
+      expect(body).to.have.length(3)
+      expect(body[0].msg).to.equal(messages[key].chat.text)
+      expect(body[0].channel).to.equal(channel)
+      expect(body[1].msg).to.equal(
+        '**StandardHupe** dealt **8.1** damage to the squad 🤕'
+      )
+      expect(body[1].channel).to.equal('supervision')
+      expect(body[2].msg).to.equal(tenor.gif('dmg_sustained'))
+      expect(body[2].channel).to.equal(channel)
     })
   })
 

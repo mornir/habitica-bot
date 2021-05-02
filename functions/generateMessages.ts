@@ -59,6 +59,11 @@ export default function generateMessages(payload: any): Message[] {
 
   if (chat.info.type === 'boss_damage') {
     const dmgSustained = parseFloat(chat.info.bossDamage)
+    if (dmgSustained > 8) {
+      const text = `**${chat.info.user}** dealt **${dmgSustained}** damage to the squad 🤕`
+      addMsg(text, 'supervision')
+    }
+
     if (dmgSustained > 5) {
       addMsg(tenor.gif('dmg_sustained'), 'skills')
       return messages
