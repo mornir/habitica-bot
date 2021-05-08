@@ -3,6 +3,7 @@ import generateMessages from './generateMessages'
 import getNonParticipants from './getNonParticipants'
 import customTexts from '../data/customTexts'
 import Toucan from 'toucan-js'
+import sendWarning from './sendWarning'
 
 export default async function handleRequest(
   request: Request,
@@ -37,6 +38,10 @@ export default async function handleRequest(
     if (ENVIRONMENT !== 'test') {
       for (const message of messages) {
         await postToDiscord(message)
+      }
+
+      if (payload?.chat?.info?.bossDamage > 8) {
+        await sendWarning(payload.chat._id)
       }
     }
 
