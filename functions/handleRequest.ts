@@ -32,7 +32,7 @@ export default async function handleRequest(
       })
     }
 
-    const messages = await generateMessages(payload)
+    const messages = generateMessages(payload)
 
     if (ENVIRONMENT !== 'test') {
       for (const message of messages) {
