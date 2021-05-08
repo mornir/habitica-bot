@@ -2,7 +2,7 @@
   "private": true,
   "name": "habitica-bot",
   "version": "1.0.0",
-  "description": "A template for kick starting a Cloudflare Workers project",
+  "description": "A Cloudflare Worker that makes use of the Habitica API and Discord Webhooks",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
