@@ -3,6 +3,9 @@ interface Member {
   profile: {
     name: string
   }
+  preferences: {
+    sleep: boolean
+  }
 }
 
 export default async function getNonParticipants(): Promise<Embed[]> {
@@ -17,7 +20,10 @@ export default async function getNonParticipants(): Promise<Embed[]> {
 
   const [rawQuest, rawParty] = await Promise.all([
     fetch('https://habitica.com/api/v3/groups/party', options),
-    fetch('https://habitica.com/api/v3/groups/party/members', options),
+    fetch(
+      'https://habitica.com/api/v3/groups/party/members?includeAllPublicFields=true',
+      options
+    ),
   ])
 
   const quest = await rawQuest.json()
@@ -29,8 +35,12 @@ export default async function getNonParticipants(): Promise<Embed[]> {
   return partyMembers
     .filter((member: Member) => !questMembers.includes(member._id))
     .map((nonParticipant: Member) => {
+      let title = nonParticipant.profile.name
+      if (nonParticipant.preferences.sleep) {
+        title += ' (at the inn)'
+      }
       return {
-        title: nonParticipant.profile.name,
+        title,
         url: 'https://habitica.com/profile/' + nonParticipant._id,
       }
     })
