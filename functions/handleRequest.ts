@@ -41,7 +41,14 @@ export default async function handleRequest(
       }
 
       if (payload?.chat?.info?.bossDamage > 8) {
-        await sendWarning(payload.chat._id)
+        const userId = payload.user._id
+        const res = await sendWarning(userId)
+        const data = await res.json()
+        if (!data.success) {
+          sentry.captureMessage(
+            `${data.error}:  ${data.message} User ID: ${userId} Env: ${ENVIRONMENT}`
+          )
+        }
       }
     }
 
