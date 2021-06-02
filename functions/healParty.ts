@@ -7,5 +7,5 @@ export default function headParty(): Promise<Response> {
       'x-api-key': X_API_KEY,
     },
   }
-  return fetch('https://habitica.com/api/v3/groups/party/members', options)
+  return fetch('https://habitica.com/api/v3/user/class/cast/healAll', options)
 }
