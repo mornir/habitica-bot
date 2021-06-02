@@ -27,8 +27,8 @@ export default async function (username: string): Promise<string | null> {
     'https://habitica.com/api/v3/groups/party/members',
     options
   )
-  const { data } = await response.json()
-  const members: Member[] = data.members
+  const payload = await response.json()
+  const members: Member[] = payload.data
   const member = members.find((m) => m.profile.name === username)
   if (member) {
     return member._id
