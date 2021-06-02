@@ -5,6 +5,7 @@ import customTexts from '../data/customTexts'
 import Toucan from 'toucan-js'
 import sendWarning from './sendWarning'
 import getMemberId from './getMemberId'
+import healParty from './healParty'
 
 export default async function handleRequest(
   request: Request,
@@ -40,22 +41,23 @@ export default async function handleRequest(
       for (const message of messages) {
         await postToDiscord(message)
       }
+    }
 
-      if (ENVIRONMENT === 'production' && payload?.chat?.info?.bossDamage > 8) {
-        const userId = await getMemberId(payload.chat.info.user)
-        if (userId) {
-          const res = await sendWarning(userId)
-          const data = await res.json()
-          if (!data.success) {
-            sentry.captureMessage(
-              `${data.error}:  ${data.message} User ID: ${userId} Env: ${ENVIRONMENT}`
-            )
-          }
-        } else {
+    if (ENVIRONMENT === 'dev' && payload?.chat?.info?.bossDamage > 8) {
+      await Promise.all([healParty, healParty, healParty])
+      const userId = await getMemberId(payload.chat.info.user)
+      if (userId) {
+        const res = await sendWarning(userId)
+        const data = await res.json()
+        if (!data.success) {
           sentry.captureMessage(
-            `Username: ${payload.chat.info.user} was not found. Env: ${ENVIRONMENT}`
+            `${data.error}:  ${data.message} User ID: ${userId} Env: ${ENVIRONMENT}`
           )
         }
+      } else {
+        sentry.captureMessage(
+          `Username: ${payload.chat.info.user} was not found. Env: ${ENVIRONMENT}`
+        )
       }
     }
 
