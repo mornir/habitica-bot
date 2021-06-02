@@ -51,12 +51,12 @@ export default async function handleRequest(
         const data = await res.json()
         if (!data.success) {
           sentry.captureMessage(
-            `${data.error}:  ${data.message} User ID: ${userId} Env: ${ENVIRONMENT}`
+            `${data.error}:  ${data.message} User ID: ${userId}`
           )
         }
       } else {
         sentry.captureMessage(
-          `Username: ${payload.chat.info.user} was not found. Env: ${ENVIRONMENT}`
+          `Username: ${payload.chat.info.user} was not found.`
         )
       }
     }
