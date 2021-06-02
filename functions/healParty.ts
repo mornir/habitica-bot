@@ -1,6 +1,6 @@
 export default function headParty(): Promise<Response> {
   const options = {
-    method: 'GET',
+    method: 'POST',
     headers: {
       Accept: 'application/json',
       'x-api-user': X_API_USER,
