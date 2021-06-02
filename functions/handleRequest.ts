@@ -43,8 +43,8 @@ export default async function handleRequest(
       }
     }
 
-    if (ENVIRONMENT === 'dev' && payload?.chat?.info?.bossDamage > 8) {
-      await Promise.all([healParty, healParty, healParty])
+    if (ENVIRONMENT === 'production' && payload?.chat?.info?.bossDamage > 8) {
+      await Promise.all([healParty(), healParty(), healParty()])
       const userId = await getMemberId(payload.chat.info.user)
       if (userId) {
         const res = await sendWarning(userId)
