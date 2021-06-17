@@ -43,8 +43,13 @@ export default async function handleRequest(
       }
     }
 
-    if (ENVIRONMENT === 'production' && payload?.chat?.info?.bossDamage > 8) {
+    /**** Heal party if damage sustained is greater than 6 ****/
+    if (ENVIRONMENT === 'production' && payload?.chat?.info?.bossDamage > 6) {
       await Promise.all([healParty(), healParty(), healParty()])
+    }
+
+    /**** Send warning as a private message on Habitica if damage sustained is greater than 8 ****/
+    if (ENVIRONMENT === 'production' && payload?.chat?.info?.bossDamage > 8) {
       const userId = await getMemberId(payload.chat.info.user)
       if (userId) {
         const res = await sendWarning(userId)
