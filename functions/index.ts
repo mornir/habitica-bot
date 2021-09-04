@@ -6,6 +6,7 @@ import Toucan from 'toucan-js'
 import sendWarning from './sendWarning'
 import getMemberId from './getMemberId'
 import healParty from './healParty'
+import autoStartQuest from './autoStartQuest'
 
 export default async function handleRequest(
   request: Request,
@@ -43,26 +44,35 @@ export default async function handleRequest(
       }
     }
 
-    /**** Heal party if damage sustained is greater than 6 ****/
-    if (ENVIRONMENT === 'production' && payload?.chat?.info?.bossDamage > 6) {
-      await Promise.all([healParty(), healParty(), healParty()])
-    }
+    if (ENVIRONMENT === 'production') {
+      if (
+        payload.webhookType === 'questActivity' &&
+        payload.type === 'questInvited'
+      ) {
+        await autoStartQuest()
+      }
 
-    /**** Send warning as a private message on Habitica if damage sustained is greater than 8 ****/
-    if (ENVIRONMENT === 'production' && payload?.chat?.info?.bossDamage > 8) {
-      const userId = await getMemberId(payload.chat.info.user)
-      if (userId) {
-        const res = await sendWarning(userId)
-        const data = await res.json()
-        if (!data.success) {
+      if (payload?.chat?.info?.bossDamage > 6) {
+        /**** Heal party if damage sustained is greater than 6 ****/
+        await Promise.all([healParty(), healParty(), healParty()])
+      }
+
+      /**** Send warning as a private message on Habitica if damage sustained is greater than 8 ****/
+      if (payload?.chat?.info?.bossDamage > 8) {
+        const userId = await getMemberId(payload.chat.info.user)
+        if (userId) {
+          const res = await sendWarning(userId)
+          const data = await res.json()
+          if (!data.success) {
+            sentry.captureMessage(
+              `${data.error}:  ${data.message} User ID: ${userId}`
+            )
+          }
+        } else {
           sentry.captureMessage(
-            `${data.error}:  ${data.message} User ID: ${userId}`
+            `Username: ${payload.chat.info.user} was not found.`
           )
         }
-      } else {
-        sentry.captureMessage(
-          `Username: ${payload.chat.info.user} was not found.`
-        )
       }
     }
 
@@ -72,7 +82,6 @@ export default async function handleRequest(
       },
     })
   } catch (error) {
-    console.error(error.message)
     sentry.captureException(error)
     return new Response('OK')
   }
