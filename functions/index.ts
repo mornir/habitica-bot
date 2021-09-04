@@ -46,8 +46,6 @@ export default async function handleRequest(
     }
 
     if (ENVIRONMENT === 'production') {
-      markNotificationsRead(sentry)
-
       if (
         payload.webhookType === 'questActivity' &&
         payload.type === 'questInvited'
@@ -77,6 +75,8 @@ export default async function handleRequest(
           )
         }
       }
+
+      markNotificationsRead(sentry)
     }
 
     return new Response(JSON.stringify(messages), {
