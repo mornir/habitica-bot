@@ -20,7 +20,7 @@ Deployments to Cloudflare (dev + production) is done via GitHub Actions
 
 ### test
 
-This is environment is only for E2E testing with Cypress running against localhost. It sets the ENVIRONMENT variable to "test" and prevents real API calls (to Discord or Habitica) to be made. This environement is listed as `habitica-bot-test` in `wrangler.toml`, but it is NOT deployed to Cloudflare.
+This is environment is only for E2E testing with Cypress running against localhost. It sets the ENVIRONMENT variable to "test" and prevents real API calls (to Discord or Habitica) to be made. This environment is listed as `habitica-bot-test` in `wrangler.toml`, but it is NOT deployed to Cloudflare.
 
 Command: `yarn test-server` (with hot reloading!)
 Testing (with UI): `yarn test`
@@ -28,8 +28,8 @@ Testing (without UI, faster): `yarn test:ci`
 
 ### dev (staging)
 
-This is the default environnment: when no argument is provided to the wrangler CLI, it assumes `dev`. **The corresponding branch on GitHub is named `staging`**.
-Standard staging environnement. Deployed to Cloudflare worker as `habitica-bot-dev`. Messages are posted to a dedicated Discord server for testing.
+This is the default environment: when no argument is provided to the wrangler CLI, it assumes `dev`. **The corresponding branch on GitHub is named `staging`**.
+Standard staging environment. Deployed to Cloudflare worker as `habitica-bot-dev`. Messages are posted to a dedicated Discord server for testing.
 
 Command: `yarn dev` (with hot reloading!)
 
@@ -39,7 +39,7 @@ Production worker. Messages are posted to the Habitica Discord server. **The cor
 
 ## Exception and Error Handling
 
-The worker always returns a 200 sucess code, even if errors are thrown. The reason is:
+The worker always returns a 200 success code, even if errors are thrown. The reason is:
 
 > Best practice is to respond to the Habitica server as soon as you receive a request with a 200 HTTP code and a non-empty response https://habitica.fandom.com/wiki/Webhooks
 

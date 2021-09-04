@@ -6,6 +6,7 @@ declare const DISCORD_SUPERVISION: string
 declare const X_API_USER: string
 declare const X_API_KEY: string
 declare const TEST: string
+declare const GROUP_ID: string
 
 interface Embed {
   title: string
