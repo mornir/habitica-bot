@@ -6,7 +6,7 @@ import Toucan from 'toucan-js'
 import sendWarning from './sendWarning'
 import getMemberId from './getMemberId'
 import healParty from './healParty'
-import autoStartQuest from './autoStartQuest'
+import autoAcceptPendingQuest from './autoAcceptPendingQuest'
 
 export default async function handleRequest(
   request: Request,
@@ -49,7 +49,7 @@ export default async function handleRequest(
         payload.webhookType === 'questActivity' &&
         payload.type === 'questInvited'
       ) {
-        await autoStartQuest()
+        await autoAcceptPendingQuest()
       }
 
       if (payload?.chat?.info?.bossDamage > 6) {
