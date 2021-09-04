@@ -1,4 +1,4 @@
-export default function autoStartQuest(): Promise<Response> {
+export default function autoAcceptPendingQuest(): Promise<Response> {
   const options = {
     method: 'POST',
     headers: {
