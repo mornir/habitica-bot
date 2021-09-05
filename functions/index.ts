@@ -76,7 +76,7 @@ export default async function handleRequest(
         }
       }
 
-      markNotificationsRead(sentry)
+      await markNotificationsRead()
     }
 
     return new Response(JSON.stringify(messages), {
