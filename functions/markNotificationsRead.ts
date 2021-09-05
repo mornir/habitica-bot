@@ -12,11 +12,10 @@ interface Notification {
   seen: boolean
 }
 
-export default async function markNotificationsRead(
-  sentry: Toucan
-): Promise<void> {
+export default async function markNotificationsRead(): Promise<void> {
   const unwantedNotificationType = ['NEW_CHAT_MESSAGE']
   const headers = {
+    'Content-Type': 'application/json',
     Accept: 'application/json',
     'x-api-user': X_API_USER,
     'x-api-key': X_API_KEY,
@@ -39,12 +38,6 @@ export default async function markNotificationsRead(
       headers,
       body: JSON.stringify({ notificationIds }),
     }
-
-    const data = await fetch(
-      'https://habitica.com/api/v3/notifications/read',
-      options
-    ).then((res) => res.json())
-
-    sentry.captureMessage(JSON.stringify(data))
+    fetch('https://habitica.com/api/v3/notifications/read', options)
   }
 }
