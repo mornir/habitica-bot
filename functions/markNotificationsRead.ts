@@ -1,5 +1,3 @@
-import Toucan from 'toucan-js'
-
 interface Notification {
   type: string
   data: {
