@@ -26,6 +26,8 @@ export default async function markNotificationsRead(): Promise<void> {
 
   const notifications = data.notifications as Notification[]
 
+  if (!notifications) return
+
   const notificationIds = notifications
     .filter((n) => unwantedNotificationType.includes(n.type))
     .map((n) => n.id)
