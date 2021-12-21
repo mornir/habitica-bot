@@ -1,5 +1,3 @@
-import Toucan from 'toucan-js'
-
 interface Notification {
   type: string
   data: {
@@ -27,6 +25,8 @@ export default async function markNotificationsRead(): Promise<void> {
   const data = await response.json()
 
   const notifications = data.notifications as Notification[]
+
+  if (!notifications) return
 
   const notificationIds = notifications
     .filter((n) => unwantedNotificationType.includes(n.type))
